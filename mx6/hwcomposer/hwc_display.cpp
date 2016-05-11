@@ -91,7 +91,8 @@ static int hwc_judge_display_state(struct hwc_context_t* ctx)
             memset(value, 0, sizeof(value));
             if (!fgets(value, sizeof(value), fp)) {
                 ALOGI("read %s failed", tmp);
-                continue;
+                fclose(fp);
+		continue;
                 //make default type to ldb.
                 //pInfo->type = HWC_DISPLAY_LDB;
                 //pInfo->connected = true;

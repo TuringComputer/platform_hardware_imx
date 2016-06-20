@@ -68,7 +68,7 @@ static int set_light_backlight(struct light_device_t* dev,
 
     brightness = ((77*((color>>16)&0x00ff)) + (150*((color>>8)&0x00ff)) +
                  (29*(color&0x00ff))) >> 8;
-    ALOGV("set_light, get brightness=%d", brightness);
+    ALOGD("set_light, get brightness=%d", brightness);
 
     file = fopen(max_path, "r");
     if (!file) {
@@ -89,7 +89,7 @@ static int set_light_backlight(struct light_device_t* dev,
         brightness  = max_brightness;
     }
     
-    ALOGV("set_light, max_brightness=%d, target brightness=%d",
+    ALOGD("set_light, max_brightness=%d, target brightness=%d",
         max_brightness, brightness);
 
     file = fopen(path, "w");
